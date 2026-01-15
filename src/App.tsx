@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Wind, Thermometer, Wrench, Phone, Mail, MapPin, ChevronDown, Check, ArrowRight, Fan, Gauge, Snowflake, Flame, Shield } from 'lucide-react'
+import { Thermometer, Phone, Mail, MapPin, ChevronDown, Check, ArrowRight, Fan, Gauge, Shield } from 'lucide-react'
 
 function App() {
   const [activeService, setActiveService] = useState<number | null>(null)
@@ -12,27 +12,128 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Technical schematic SVGs for each service
+  const ACSchematic = () => (
+    <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+      {/* Compressor */}
+      <circle cx="20" cy="60" r="10" strokeWidth="1.5"/>
+      <text x="20" y="63" fontSize="6" fill="currentColor" textAnchor="middle" stroke="none">C</text>
+      {/* Condenser coil */}
+      <rect x="45" y="50" width="25" height="20" rx="2"/>
+      <path d="M50 55 L65 55 M50 60 L65 60 M50 65 L65 65" strokeWidth="0.8"/>
+      {/* Evaporator coil */}
+      <rect x="45" y="10" width="25" height="20" rx="2"/>
+      <path d="M50 15 L65 15 M50 20 L65 20 M50 25 L65 25" strokeWidth="0.8"/>
+      {/* Refrigerant lines */}
+      <path d="M30 60 L45 60" strokeWidth="1.5"/>
+      <path d="M70 50 L70 30 L70 30" strokeWidth="1.5"/>
+      <path d="M45 20 L35 20 L35 50 L20 50" strokeWidth="1"/>
+      {/* Expansion valve */}
+      <polygon points="70,35 75,40 70,45 65,40" fill="currentColor" stroke="none"/>
+      {/* Airflow arrows */}
+      <path d="M57 5 L57 10 M52 7 L57 2 L62 7" strokeWidth="0.8"/>
+      <path d="M57 75 L57 70 M52 73 L57 78 L62 73" strokeWidth="0.8"/>
+    </svg>
+  )
+
+  const HeatingSchematic = () => (
+    <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+      {/* Furnace body */}
+      <rect x="10" y="25" width="30" height="45" rx="2" strokeWidth="1.5"/>
+      {/* Heat exchanger */}
+      <path d="M15 35 Q25 40 35 35 M15 45 Q25 50 35 45 M15 55 Q25 60 35 55" strokeWidth="1"/>
+      {/* Burner flames */}
+      <path d="M18 65 L18 60 M22 65 L22 58 M26 65 L26 60 M30 65 L30 58" strokeWidth="1.5" stroke="#0ea5e9"/>
+      {/* Ductwork */}
+      <rect x="45" y="30" width="25" height="12" rx="1"/>
+      <rect x="45" y="48" width="25" height="12" rx="1"/>
+      {/* Supply duct */}
+      <path d="M40 36 L45 36" strokeWidth="1.5"/>
+      {/* Return duct */}
+      <path d="M40 54 L45 54" strokeWidth="1.5"/>
+      {/* Airflow arrows */}
+      <path d="M55 25 L55 30 M50 27 L55 22 L60 27" strokeWidth="0.8"/>
+      <path d="M55 65 L55 60 M50 63 L55 68 L60 63" strokeWidth="0.8"/>
+      {/* Thermostat */}
+      <rect x="60" y="10" width="12" height="10" rx="1"/>
+      <circle cx="66" cy="15" r="3"/>
+    </svg>
+  )
+
+  const VentilationSchematic = () => (
+    <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+      {/* Main duct */}
+      <rect x="5" y="35" width="70" height="15" rx="1" strokeWidth="1.5"/>
+      {/* Branch ducts */}
+      <rect x="15" y="10" width="10" height="25" rx="1"/>
+      <rect x="35" y="10" width="10" height="25" rx="1"/>
+      <rect x="55" y="10" width="10" height="25" rx="1"/>
+      {/* Vents */}
+      <rect x="15" y="5" width="10" height="5"/>
+      <path d="M17 7 L23 7" strokeWidth="0.8"/>
+      <rect x="35" y="5" width="10" height="5"/>
+      <path d="M37 7 L43 7" strokeWidth="0.8"/>
+      <rect x="55" y="5" width="10" height="5"/>
+      <path d="M57 7 L63 7" strokeWidth="0.8"/>
+      {/* Fan unit */}
+      <circle cx="40" cy="62" r="12" strokeWidth="1.5"/>
+      <path d="M40 50 L40 55" strokeWidth="1"/>
+      {/* Fan blades */}
+      <path d="M35 62 L45 62 M40 57 L40 67 M36 58 L44 66 M44 58 L36 66" strokeWidth="0.8"/>
+      {/* Airflow arrows */}
+      <path d="M20 30 L20 35 M15 32 L20 27 L25 32" strokeWidth="0.8"/>
+      <path d="M40 30 L40 35 M35 32 L40 27 L45 32" strokeWidth="0.8"/>
+      <path d="M60 30 L60 35 M55 32 L60 27 L65 32" strokeWidth="0.8"/>
+    </svg>
+  )
+
+  const MaintenanceSchematic = () => (
+    <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+      {/* Pressure gauge */}
+      <circle cx="25" cy="25" r="15" strokeWidth="1.5"/>
+      <circle cx="25" cy="25" r="12"/>
+      <path d="M25 25 L25 15" strokeWidth="1.5"/>
+      <path d="M25 25 L32 20" strokeWidth="1"/>
+      {/* Gauge markings */}
+      <path d="M15 25 L17 25 M25 13 L25 15 M35 25 L33 25" strokeWidth="0.8"/>
+      {/* Multimeter */}
+      <rect x="50" y="10" width="20" height="30" rx="2" strokeWidth="1.5"/>
+      <rect x="54" y="14" width="12" height="8" rx="1"/>
+      <circle cx="57" cy="30" r="2"/>
+      <circle cx="63" cy="30" r="2"/>
+      {/* Wrench */}
+      <path d="M10 55 L25 70" strokeWidth="2"/>
+      <path d="M8 52 L13 57 L8 62 Z" fill="currentColor"/>
+      <rect x="23" y="68" width="6" height="8" rx="1" transform="rotate(-45 26 72)"/>
+      {/* Filter */}
+      <rect x="45" y="50" width="25" height="20" rx="2"/>
+      <path d="M48 55 L67 55 M48 60 L67 60 M48 65 L67 65" strokeWidth="0.8"/>
+      {/* Checkmark */}
+      <path d="M72 52 L75 55 L80 48" strokeWidth="1.5" stroke="#0ea5e9"/>
+    </svg>
+  )
+
   const services = [
     {
-      icon: <Snowflake className="w-12 h-12" />,
+      icon: <ACSchematic />,
       title: "Air Conditioning",
       description: "Professional AC installation, repair, and maintenance services for residential and commercial properties.",
       features: ["24/7 Emergency Service", "Energy Efficient Systems", "Smart Thermostat Integration"]
     },
     {
-      icon: <Flame className="w-12 h-12" />,
+      icon: <HeatingSchematic />,
       title: "Heating Systems",
       description: "Complete heating solutions including furnaces, heat pumps, and radiant heating systems.",
       features: ["Furnace Installation", "Heat Pump Services", "Boiler Maintenance"]
     },
     {
-      icon: <Wind className="w-12 h-12" />,
+      icon: <VentilationSchematic />,
       title: "Ventilation",
       description: "Advanced ventilation systems ensuring optimal air quality and circulation throughout your space.",
       features: ["Duct Cleaning", "Air Quality Testing", "Exhaust Systems"]
     },
     {
-      icon: <Wrench className="w-12 h-12" />,
+      icon: <MaintenanceSchematic />,
       title: "Maintenance",
       description: "Preventive maintenance programs to keep your HVAC systems running at peak efficiency.",
       features: ["Annual Inspections", "Filter Replacement", "System Optimization"]
@@ -197,7 +298,7 @@ function App() {
                   activeService === index ? 'bg-slate-800/80' : 'hover:bg-slate-800/70'
                 }`}>
                   <div className="flex items-start gap-6">
-                    <div className="text-sky-400 p-4 bg-sky-500/10 rounded-xl">
+                    <div className="text-sky-400 w-24 h-24 p-3 bg-sky-500/10 rounded-xl flex-shrink-0">
                       {service.icon}
                     </div>
                     <div className="flex-1">
