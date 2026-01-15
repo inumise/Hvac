@@ -39,21 +39,24 @@ function App() {
     }
   ]
 
-  const projects = [
+  const videos = [
     {
-      image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
-      title: "Commercial Complex",
-      category: "Industrial HVAC"
+      videoId: "YNfPtLvPews",
+      title: "How Air Conditioners Work",
+      category: "Air Conditioning",
+      description: "Simple explanation of AC system fundamentals"
     },
     {
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      title: "Office Building",
-      category: "Ventilation System"
+      videoId: "p6GXJdRUz9E",
+      title: "3D Refrigeration Circuit",
+      category: "System Overview",
+      description: "Deep dive into refrigerant circuit components"
     },
     {
-      image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
-      title: "Residential Project",
-      category: "Central Air"
+      videoId: "V-jmSjy2ArM",
+      title: "Heat Pump Technology",
+      category: "Heating Systems",
+      description: "Modern heat pump solutions explained"
     }
   ]
 
@@ -328,46 +331,50 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Technology Videos Section */}
       <section id="projects" className="py-24 px-6 bg-slate-800/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                Featured Projects
+                HVAC Technology
               </span>
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Explore our portfolio of successful HVAC installations and solutions
+              Learn about the advanced technology behind modern HVAC systems
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-2xl">
-                <div className="aspect-square bg-slate-700 overflow-hidden">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://placehold.co/600x600/1e293b/0ea5e9?text=HVAC+Project';
-                    }}
-                  />
+            {videos.map((video, index) => (
+              <div key={index} className="group relative">
+                {/* Technical Drawing Border */}
+                <div className="absolute inset-0 border-2 border-sky-500/20 rounded-2xl">
+                  <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-sky-500"></div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-sky-500"></div>
+                  <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-sky-500"></div>
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-sky-500"></div>
                 </div>
                 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="text-sky-400 text-sm font-medium mb-2">{project.category}</div>
-                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden">
+                  {/* YouTube Embed */}
+                  <div className="aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.videoId}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                  
+                  {/* Video Info */}
+                  <div className="p-6">
+                    <div className="text-sky-400 text-sm font-medium mb-2">{video.category}</div>
+                    <h3 className="text-xl font-bold text-white mb-2">{video.title}</h3>
+                    <p className="text-slate-400 text-sm">{video.description}</p>
                   </div>
                 </div>
-                
-                {/* Technical Corner */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-sky-500/50"></div>
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-sky-500/50"></div>
               </div>
             ))}
           </div>
