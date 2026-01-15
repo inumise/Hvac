@@ -6,6 +6,35 @@
   text-align: left;
 }
 
+/* Pulsing gradient animation for borders - sapphire to angelic blue */
+@keyframes pulse-gradient {
+  0%, 100% {
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.1);
+  }
+  50% {
+    border-color: rgba(186, 230, 253, 0.5);
+    box-shadow: 0 0 12px rgba(186, 230, 253, 0.2);
+  }
+}
+
+@keyframes pulse-gradient-corner {
+  0%, 100% {
+    border-color: rgba(14, 165, 233, 0.6);
+  }
+  50% {
+    border-color: rgba(186, 230, 253, 0.8);
+  }
+}
+
+.pulse-border {
+  animation: pulse-gradient 4s ease-in-out infinite;
+}
+
+.pulse-corner {
+  animation: pulse-gradient-corner 4s ease-in-out infinite;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

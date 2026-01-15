@@ -108,9 +108,9 @@ function App() {
                 <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.1"/>
               </linearGradient>
             </defs>
-            <path d="M0,200 Q200,150 400,200 T800,200 T1200,200 T1600,200" stroke="url(#pipeGradient)" strokeWidth="8" fill="none" className="animate-pulse"/>
-            <path d="M0,400 Q200,350 400,400 T800,400 T1200,400 T1600,400" stroke="url(#pipeGradient)" strokeWidth="6" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }}/>
-            <path d="M0,600 Q200,550 400,600 T800,600 T1200,600 T1600,600" stroke="url(#pipeGradient)" strokeWidth="4" fill="none" className="animate-pulse" style={{ animationDelay: '1s' }}/>
+            <path d="M0,200 Q200,150 400,200 T800,200 T1200,200 T1600,200" stroke="url(#pipeGradient)" strokeWidth="3" fill="none" className="animate-pulse"/>
+            <path d="M0,400 Q200,350 400,400 T800,400 T1200,400 T1600,400" stroke="url(#pipeGradient)" strokeWidth="2" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }}/>
+            <path d="M0,600 Q200,550 400,600 T800,600 T1200,600 T1600,600" stroke="url(#pipeGradient)" strokeWidth="1.5" fill="none" className="animate-pulse" style={{ animationDelay: '1s' }}/>
           </svg>
           
           {/* Floating Gauges */}
@@ -149,7 +149,7 @@ function App() {
               Schedule Service
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="border-2 border-sky-500/50 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sky-500/10 transition-all flex items-center justify-center gap-2">
+            <button className="border border-sky-500/50 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sky-500/10 transition-all flex items-center justify-center gap-2 pulse-border">
               <Phone className="w-5 h-5" />
               Call Now
             </button>
@@ -186,11 +186,11 @@ function App() {
                 onClick={() => setActiveService(activeService === index ? null : index)}
               >
                 {/* Technical Drawing Border */}
-                <div className="absolute inset-0 border-2 border-sky-500/20 rounded-2xl">
-                  <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-sky-500"></div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-sky-500"></div>
-                  <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-sky-500"></div>
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-sky-500"></div>
+                <div className="absolute inset-0 border border-sky-500/20 rounded-2xl pulse-border">
+                  <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border-t border-l border-sky-400 pulse-corner"></div>
+                  <div className="absolute -top-0.5 -right-0.5 w-2 h-2 border-t border-r border-sky-400 pulse-corner"></div>
+                  <div className="absolute -bottom-0.5 -left-0.5 w-2 h-2 border-b border-l border-sky-400 pulse-corner"></div>
+                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 border-b border-r border-sky-400 pulse-corner"></div>
                 </div>
 
                 <div className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 ${
@@ -262,19 +262,19 @@ function App() {
               </p>
               
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20">
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border">
                   <div className="text-4xl font-bold text-sky-400 mb-2">500+</div>
                   <div className="text-slate-400">Projects Completed</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20">
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '1s' }}>
                   <div className="text-4xl font-bold text-sky-400 mb-2">20+</div>
                   <div className="text-slate-400">Years Experience</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20">
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '2s' }}>
                   <div className="text-4xl font-bold text-sky-400 mb-2">98%</div>
                   <div className="text-slate-400">Client Satisfaction</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20">
+                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '3s' }}>
                   <div className="text-4xl font-bold text-sky-400 mb-2">24/7</div>
                   <div className="text-slate-400">Emergency Service</div>
                 </div>
@@ -283,8 +283,8 @@ function App() {
             
             <div className="relative">
               {/* Technical Drawing Frame */}
-              <div className="absolute inset-0 border-2 border-sky-500/30 rounded-2xl transform rotate-3"></div>
-              <div className="absolute inset-0 border-2 border-sky-500/20 rounded-2xl transform -rotate-3"></div>
+              <div className="absolute inset-0 border border-sky-500/30 rounded-2xl transform rotate-3 pulse-border"></div>
+              <div className="absolute inset-0 border border-sky-500/20 rounded-2xl transform -rotate-3 pulse-border" style={{ animationDelay: '2s' }}></div>
               
               <div className="relative bg-slate-800/50 rounded-2xl p-8 backdrop-blur-sm">
                 <div className="aspect-video bg-gradient-to-br from-sky-500/20 to-blue-600/20 rounded-xl flex items-center justify-center overflow-hidden">
@@ -358,11 +358,11 @@ function App() {
             
             <div className="relative">
               {/* Technical Drawing Border */}
-              <div className="absolute inset-0 border-2 border-sky-500/20 rounded-2xl">
-                <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-sky-500"></div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-sky-500"></div>
-                <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-sky-500"></div>
-                <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-sky-500"></div>
+              <div className="absolute inset-0 border border-sky-500/20 rounded-2xl pulse-border">
+                <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border-t border-l border-sky-400 pulse-corner"></div>
+                <div className="absolute -top-0.5 -right-0.5 w-3 h-3 border-t border-r border-sky-400 pulse-corner"></div>
+                <div className="absolute -bottom-0.5 -left-0.5 w-3 h-3 border-b border-l border-sky-400 pulse-corner"></div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 border-b border-r border-sky-400 pulse-corner"></div>
               </div>
               
               <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8">
