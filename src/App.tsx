@@ -39,27 +39,6 @@ function App() {
     }
   ]
 
-  const videos = [
-    {
-      videoId: "YNfPtLvPews",
-      title: "How Air Conditioners Work",
-      category: "Air Conditioning",
-      description: "Simple explanation of AC system fundamentals"
-    },
-    {
-      videoId: "p6GXJdRUz9E",
-      title: "3D Refrigeration Circuit",
-      category: "System Overview",
-      description: "Deep dive into refrigerant circuit components"
-    },
-    {
-      videoId: "V-jmSjy2ArM",
-      title: "Heat Pump Technology",
-      category: "Heating Systems",
-      description: "Modern heat pump solutions explained"
-    }
-  ]
-
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
       {/* Technical Drawing Background Pattern */}
@@ -95,7 +74,6 @@ function App() {
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-slate-300 hover:text-sky-400 transition-colors">Services</a>
             <a href="#about" className="text-slate-300 hover:text-sky-400 transition-colors">About</a>
-            <a href="#projects" className="text-slate-300 hover:text-sky-400 transition-colors">Projects</a>
             <a href="#contact" className="text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
           </div>
           <button className="bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-2 rounded-lg font-semibold hover:from-sky-400 hover:to-blue-500 transition-all shadow-lg shadow-sky-500/25">
@@ -331,56 +309,6 @@ function App() {
         </div>
       </section>
 
-      {/* Technology Videos Section */}
-      <section id="projects" className="py-24 px-6 bg-slate-800/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                HVAC Technology
-              </span>
-            </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Learn about the advanced technology behind modern HVAC systems
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {videos.map((video, index) => (
-              <div key={index} className="group relative">
-                {/* Technical Drawing Border */}
-                <div className="absolute inset-0 border-2 border-sky-500/20 rounded-2xl">
-                  <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-sky-500"></div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-sky-500"></div>
-                  <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-sky-500"></div>
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-sky-500"></div>
-                </div>
-                
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden">
-                  {/* YouTube Embed */}
-                  <div className="aspect-video">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.videoId}`}
-                      title={video.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
-                  </div>
-                  
-                  {/* Video Info */}
-                  <div className="p-6">
-                    <div className="text-sky-400 text-sm font-medium mb-2">{video.category}</div>
-                    <h3 className="text-xl font-bold text-white mb-2">{video.title}</h3>
-                    <p className="text-slate-400 text-sm">{video.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
@@ -499,7 +427,6 @@ function App() {
             <div className="flex items-center gap-8 text-slate-400">
               <a href="#services" className="hover:text-sky-400 transition-colors">Services</a>
               <a href="#about" className="hover:text-sky-400 transition-colors">About</a>
-              <a href="#projects" className="hover:text-sky-400 transition-colors">Projects</a>
               <a href="#contact" className="hover:text-sky-400 transition-colors">Contact</a>
             </div>
             
