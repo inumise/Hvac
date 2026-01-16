@@ -282,22 +282,46 @@ function App() {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span 
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text text-transparent inline-block"
               style={{
-                backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #6b7280 0%, #e5e7eb ${mousePos.x * 0.8}%, #ffffff ${mousePos.x}%, #e5e7eb ${mousePos.x * 1.2}%, #9ca3af 60%, #d1d5db ${80 + mousePos.y * 0.2}%, #6b7280 100%)`,
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                transition: 'background-image 0.1s ease-out'
+                backgroundImage: `linear-gradient(${135 + (mousePos.x - 50) * 0.3}deg, 
+                  #ffffff 0%, 
+                  #f5f5f5 5%, 
+                  #e8e8e8 10%, 
+                  #d0d0d0 ${15 + mousePos.x * 0.2}%, 
+                  #b8b8b8 ${25 + mousePos.x * 0.15}%, 
+                  #a0a0a0 35%, 
+                  #888888 ${45 + mousePos.y * 0.1}%, 
+                  #707070 55%, 
+                  #585858 65%, 
+                  #404040 75%, 
+                  #2d2d2d 85%, 
+                  #1a1a1a 100%)`,
+                filter: 'drop-shadow(-2px -2px 3px rgba(255,255,255,0.4)) drop-shadow(3px 3px 6px rgba(0,0,0,0.6)) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))',
+                transition: 'background-image 0.05s ease-out'
               }}
             >
               Advanced Climate
             </span>
             <br />
             <span 
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text text-transparent inline-block"
               style={{
-                backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.6}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #6b7280 70%, #4a5568 100%)`,
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                transition: 'background-image 0.1s ease-out'
+                backgroundImage: `linear-gradient(${135 + (mousePos.x - 50) * 0.3}deg, 
+                  #ffffff 0%, 
+                  #f0f0f0 8%, 
+                  #e0e0e0 15%, 
+                  #c8c8c8 ${22 + mousePos.x * 0.18}%, 
+                  #b0b0b0 ${32 + mousePos.x * 0.12}%, 
+                  #989898 42%, 
+                  #808080 ${52 + mousePos.y * 0.08}%, 
+                  #686868 62%, 
+                  #505050 72%, 
+                  #383838 82%, 
+                  #202020 92%, 
+                  #1a1a1a 100%)`,
+                filter: 'drop-shadow(-2px -2px 3px rgba(255,255,255,0.4)) drop-shadow(3px 3px 6px rgba(0,0,0,0.6)) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))',
+                transition: 'background-image 0.05s ease-out'
               }}
             >
               Control Solutions
@@ -333,11 +357,23 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span 
-                className="bg-clip-text text-transparent"
+                className="bg-clip-text text-transparent inline-block"
                 style={{
-                  backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
-                  textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                  transition: 'background-image 0.1s ease-out'
+                  backgroundImage: `linear-gradient(${135 + (mousePos.x - 50) * 0.3}deg, 
+                    #ffffff 0%, 
+                    #f0f0f0 8%, 
+                    #e0e0e0 15%, 
+                    #c8c8c8 ${22 + mousePos.x * 0.18}%, 
+                    #b0b0b0 ${32 + mousePos.x * 0.12}%, 
+                    #989898 42%, 
+                    #808080 ${52 + mousePos.y * 0.08}%, 
+                    #686868 62%, 
+                    #505050 72%, 
+                    #383838 82%, 
+                    #202020 92%, 
+                    #1a1a1a 100%)`,
+                  filter: 'drop-shadow(-2px -2px 3px rgba(255,255,255,0.4)) drop-shadow(3px 3px 6px rgba(0,0,0,0.6)) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))',
+                  transition: 'background-image 0.05s ease-out'
                 }}
               >
                 Our Services
@@ -424,11 +460,23 @@ function App() {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span 
-                  className="bg-clip-text text-transparent"
+                  className="bg-clip-text text-transparent inline-block"
                   style={{
-                    backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
-                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                    transition: 'background-image 0.1s ease-out'
+                    backgroundImage: `linear-gradient(${135 + (mousePos.x - 50) * 0.3}deg, 
+                      #ffffff 0%, 
+                      #f0f0f0 8%, 
+                      #e0e0e0 15%, 
+                      #c8c8c8 ${22 + mousePos.x * 0.18}%, 
+                      #b0b0b0 ${32 + mousePos.x * 0.12}%, 
+                      #989898 42%, 
+                      #808080 ${52 + mousePos.y * 0.08}%, 
+                      #686868 62%, 
+                      #505050 72%, 
+                      #383838 82%, 
+                      #202020 92%, 
+                      #1a1a1a 100%)`,
+                    filter: 'drop-shadow(-2px -2px 3px rgba(255,255,255,0.4)) drop-shadow(3px 3px 6px rgba(0,0,0,0.6)) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))',
+                    transition: 'background-image 0.05s ease-out'
                   }}
                 >
                   Engineering Excellence
@@ -495,11 +543,23 @@ function App() {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span 
-                  className="bg-clip-text text-transparent"
+                  className="bg-clip-text text-transparent inline-block"
                   style={{
-                    backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
-                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                    transition: 'background-image 0.1s ease-out'
+                    backgroundImage: `linear-gradient(${135 + (mousePos.x - 50) * 0.3}deg, 
+                      #ffffff 0%, 
+                      #f0f0f0 8%, 
+                      #e0e0e0 15%, 
+                      #c8c8c8 ${22 + mousePos.x * 0.18}%, 
+                      #b0b0b0 ${32 + mousePos.x * 0.12}%, 
+                      #989898 42%, 
+                      #808080 ${52 + mousePos.y * 0.08}%, 
+                      #686868 62%, 
+                      #505050 72%, 
+                      #383838 82%, 
+                      #202020 92%, 
+                      #1a1a1a 100%)`,
+                    filter: 'drop-shadow(-2px -2px 3px rgba(255,255,255,0.4)) drop-shadow(3px 3px 6px rgba(0,0,0,0.6)) drop-shadow(1px 1px 2px rgba(0,0,0,0.3))',
+                    transition: 'background-image 0.05s ease-out'
                   }}
                 >
                   Get In Touch
