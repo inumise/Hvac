@@ -5,11 +5,22 @@ import { Thermometer, Phone, Mail, MapPin, ChevronDown, Check, ArrowRight, Fan, 
 function App() {
   const [activeService, setActiveService] = useState<number | null>(null)
   const [scrollY, setScrollY] = useState(0)
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 })
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100
+      const y = (e.clientY / window.innerHeight) * 100
+      setMousePos({ x, y })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   // Technical schematic SVGs for each service
@@ -270,11 +281,25 @@ function App() {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-sky-200 to-white bg-clip-text text-transparent">
+            <span 
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #6b7280 0%, #e5e7eb ${mousePos.x * 0.8}%, #ffffff ${mousePos.x}%, #e5e7eb ${mousePos.x * 1.2}%, #9ca3af 60%, #d1d5db ${80 + mousePos.y * 0.2}%, #6b7280 100%)`,
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                transition: 'background-image 0.1s ease-out'
+              }}
+            >
               Advanced Climate
             </span>
             <br />
-            <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+            <span 
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.6}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #6b7280 70%, #4a5568 100%)`,
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                transition: 'background-image 0.1s ease-out'
+              }}
+            >
               Control Solutions
             </span>
           </h1>
@@ -307,7 +332,14 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+              <span 
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
+                  textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                  transition: 'background-image 0.1s ease-out'
+                }}
+              >
                 Our Services
               </span>
             </h2>
@@ -391,7 +423,14 @@ function App() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+                <span 
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
+                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                    transition: 'background-image 0.1s ease-out'
+                  }}
+                >
                   Engineering Excellence
                 </span>
               </h2>
@@ -455,7 +494,14 @@ function App() {
           <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+                <span 
+                  className="bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: `linear-gradient(${135 + mousePos.x * 0.5}deg, #4a5568 0%, #9ca3af ${mousePos.x * 0.7}%, #e5e7eb ${mousePos.x * 0.9}%, #ffffff ${mousePos.x}%, #d1d5db ${mousePos.x * 1.1}%, #9ca3af 65%, #4a5568 100%)`,
+                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                    transition: 'background-image 0.1s ease-out'
+                  }}
+                >
                   Get In Touch
                 </span>
               </h2>
