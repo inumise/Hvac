@@ -142,22 +142,61 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
-      {/* Technical Drawing Background Pattern */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      {/* Stainless Steel Reflective Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        {/* Base metallic gradient - stainless steel effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 opacity-90"></div>
+        
+        {/* Reflective highlight streaks */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
+          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
+          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
+        </div>
+        
+        {/* Gunmetal complex shapes */}
+        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#0ea5e9" strokeWidth="0.5"/>
-            </pattern>
-            <pattern id="circles" width="100" height="100" patternUnits="userSpaceOnUse">
-              <circle cx="50" cy="50" r="30" fill="none" stroke="#0ea5e9" strokeWidth="0.3"/>
-              <circle cx="50" cy="50" r="20" fill="none" stroke="#0ea5e9" strokeWidth="0.3"/>
-              <circle cx="50" cy="50" r="10" fill="none" stroke="#0ea5e9" strokeWidth="0.3"/>
+            {/* Gunmetal gradient */}
+            <linearGradient id="gunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#2a3439"/>
+              <stop offset="30%" stopColor="#4a5568"/>
+              <stop offset="50%" stopColor="#6b7280"/>
+              <stop offset="70%" stopColor="#4a5568"/>
+              <stop offset="100%" stopColor="#2a3439"/>
+            </linearGradient>
+            {/* Stainless steel gradient */}
+            <linearGradient id="stainless" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#e5e7eb"/>
+              <stop offset="20%" stopColor="#9ca3af"/>
+              <stop offset="50%" stopColor="#d1d5db"/>
+              <stop offset="80%" stopColor="#9ca3af"/>
+              <stop offset="100%" stopColor="#6b7280"/>
+            </linearGradient>
+            {/* Subtle grid pattern */}
+            <pattern id="metalGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#4a5568" strokeWidth="0.3"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#grid)"/>
-          <rect width="100%" height="100%" fill="url(#circles)"/>
+          
+          {/* Complex geometric shapes - gunmetal */}
+          <polygon points="0,0 200,0 150,100 0,80" fill="url(#gunmetal)" opacity="0.4"/>
+          <polygon points="100,200 300,150 350,350 150,400" fill="url(#gunmetal)" opacity="0.3"/>
+          <polygon points="800,0 1000,50 950,200 750,180" fill="url(#gunmetal)" opacity="0.35"/>
+          <polygon points="600,300 850,280 900,500 650,520" fill="url(#gunmetal)" opacity="0.3"/>
+          <polygon points="1200,100 1400,80 1380,300 1180,320" fill="url(#gunmetal)" opacity="0.4"/>
+          
+          {/* Diagonal metallic beams */}
+          <rect x="-50" y="400" width="800" height="3" fill="url(#stainless)" opacity="0.15" transform="rotate(-15)"/>
+          <rect x="200" y="600" width="1000" height="2" fill="url(#stainless)" opacity="0.1" transform="rotate(-10)"/>
+          <rect x="500" y="200" width="600" height="2" fill="url(#stainless)" opacity="0.12" transform="rotate(-20)"/>
+          
+          {/* Subtle grid overlay */}
+          <rect width="100%" height="100%" fill="url(#metalGrid)" opacity="0.3"/>
         </svg>
+        
+        {/* Mirror-like reflection effect */}
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent opacity-30"></div>
       </div>
 
       {/* Navigation */}
@@ -168,8 +207,8 @@ function App() {
               <Fan className="w-10 h-10 text-sky-400 animate-spin" style={{ animationDuration: '3s' }} />
               <div className="absolute inset-0 bg-sky-400/20 rounded-full blur-lg"></div>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-              HVAC Pro
+            <span className="text-xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+              HVAC Group Global
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -520,8 +559,8 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Fan className="w-8 h-8 text-sky-400" />
-              <span className="text-xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                HVAC Pro
+              <span className="text-lg font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+                HVAC Group Global
               </span>
             </div>
             
@@ -532,7 +571,7 @@ function App() {
             </div>
             
             <div className="text-slate-500 text-sm">
-              © 2026 HVAC Pro. All rights reserved.
+              © 2026 HVAC Group Global. All rights reserved.
             </div>
           </div>
         </div>
