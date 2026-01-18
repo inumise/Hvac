@@ -142,139 +142,239 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
-      {/* 3D Steel Background with Sapphire-to-Navy Metallic Gradient */}
+      {/* High-Quality 3D Stainless Steel Background */}
       <div className="fixed inset-0 pointer-events-none">
-        {/* Base gradient - sapphire to navy metallic */}
+        {/* Base gradient - dark steel to gunmetal */}
         <div className="absolute inset-0" style={{
-          background: `linear-gradient(135deg, 
-            #0c4a6e 0%, 
-            #0369a1 15%, 
-            #0ea5e9 30%, 
-            #38bdf8 40%, 
-            #0ea5e9 50%, 
-            #0369a1 65%, 
-            #0c4a6e 80%, 
-            #082f49 100%)`
+          background: `linear-gradient(145deg, 
+            #1a1a1a 0%, 
+            #2d2d2d 10%, 
+            #3d3d3d 20%, 
+            #4a4a4a 30%, 
+            #5a5a5a 40%, 
+            #4a4a4a 50%, 
+            #3d3d3d 60%, 
+            #2d2d2d 75%, 
+            #1a1a1a 90%, 
+            #0f0f0f 100%)`
         }}></div>
         
-        {/* Metallic sheen overlay */}
-        <div className="absolute inset-0 opacity-40" style={{
-          background: `linear-gradient(180deg, 
-            rgba(255,255,255,0.15) 0%, 
-            rgba(255,255,255,0.05) 20%, 
-            transparent 40%, 
+        {/* Stainless steel brushed texture overlay */}
+        <div className="absolute inset-0 opacity-30" style={{
+          background: `repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            rgba(255,255,255,0.03) 1px,
+            transparent 2px,
+            transparent 4px
+          )`
+        }}></div>
+        
+        {/* Metallic sheen - top light source */}
+        <div className="absolute inset-0 opacity-50" style={{
+          background: `linear-gradient(165deg, 
+            rgba(255,255,255,0.25) 0%, 
+            rgba(200,200,200,0.15) 10%, 
+            rgba(150,150,150,0.08) 20%, 
+            transparent 35%, 
             rgba(0,0,0,0.1) 60%, 
-            rgba(0,0,0,0.2) 100%)`
+            rgba(0,0,0,0.25) 100%)`
         }}></div>
         
-        {/* 3D Steel Shapes */}
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        {/* High-Quality 3D Steel Shapes with Anti-Aliasing */}
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'geometricPrecision' }}>
           <defs>
-            {/* Metallic sapphire gradient - lighter */}
-            <linearGradient id="steelSapphire" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#7dd3fc"/>
-              <stop offset="15%" stopColor="#38bdf8"/>
-              <stop offset="30%" stopColor="#0ea5e9"/>
-              <stop offset="50%" stopColor="#38bdf8"/>
-              <stop offset="70%" stopColor="#0ea5e9"/>
-              <stop offset="85%" stopColor="#0284c7"/>
-              <stop offset="100%" stopColor="#0369a1"/>
+            {/* Polished stainless steel gradient - bright */}
+            <linearGradient id="stainlessPolished" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f0f0f0"/>
+              <stop offset="8%" stopColor="#e0e0e0"/>
+              <stop offset="15%" stopColor="#d0d0d0"/>
+              <stop offset="25%" stopColor="#c0c0c0"/>
+              <stop offset="35%" stopColor="#b0b0b0"/>
+              <stop offset="45%" stopColor="#a0a0a0"/>
+              <stop offset="55%" stopColor="#909090"/>
+              <stop offset="65%" stopColor="#808080"/>
+              <stop offset="75%" stopColor="#707070"/>
+              <stop offset="85%" stopColor="#606060"/>
+              <stop offset="95%" stopColor="#505050"/>
+              <stop offset="100%" stopColor="#404040"/>
             </linearGradient>
             
-            {/* Metallic navy gradient - darker */}
-            <linearGradient id="steelNavy" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0369a1"/>
-              <stop offset="20%" stopColor="#075985"/>
-              <stop offset="40%" stopColor="#0c4a6e"/>
-              <stop offset="60%" stopColor="#0369a1"/>
-              <stop offset="80%" stopColor="#0c4a6e"/>
-              <stop offset="100%" stopColor="#082f49"/>
+            {/* Brushed steel gradient - darker */}
+            <linearGradient id="steelBrushed" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#909090"/>
+              <stop offset="10%" stopColor="#808080"/>
+              <stop offset="20%" stopColor="#707070"/>
+              <stop offset="35%" stopColor="#606060"/>
+              <stop offset="50%" stopColor="#707070"/>
+              <stop offset="65%" stopColor="#585858"/>
+              <stop offset="80%" stopColor="#484848"/>
+              <stop offset="90%" stopColor="#383838"/>
+              <stop offset="100%" stopColor="#282828"/>
             </linearGradient>
             
-            {/* 3D highlight gradient */}
-            <linearGradient id="steel3DHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#bae6fd" stopOpacity="0.6"/>
-              <stop offset="30%" stopColor="#7dd3fc" stopOpacity="0.3"/>
-              <stop offset="70%" stopColor="#0284c7" stopOpacity="0.1"/>
-              <stop offset="100%" stopColor="#082f49" stopOpacity="0.4"/>
+            {/* Gunmetal gradient */}
+            <linearGradient id="gunmetalSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#4a5568"/>
+              <stop offset="15%" stopColor="#3d4654"/>
+              <stop offset="30%" stopColor="#2d3748"/>
+              <stop offset="50%" stopColor="#3d4654"/>
+              <stop offset="70%" stopColor="#2d3748"/>
+              <stop offset="85%" stopColor="#1a202c"/>
+              <stop offset="100%" stopColor="#171923"/>
             </linearGradient>
             
-            {/* 3D shadow gradient */}
-            <linearGradient id="steel3DShadow" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#082f49" stopOpacity="0.8"/>
-              <stop offset="50%" stopColor="#0c4a6e" stopOpacity="0.5"/>
-              <stop offset="100%" stopColor="#0369a1" stopOpacity="0.2"/>
+            {/* 3D highlight - polished edge */}
+            <linearGradient id="steelHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9"/>
+              <stop offset="10%" stopColor="#f5f5f5" stopOpacity="0.7"/>
+              <stop offset="30%" stopColor="#e0e0e0" stopOpacity="0.5"/>
+              <stop offset="50%" stopColor="#c0c0c0" stopOpacity="0.3"/>
+              <stop offset="70%" stopColor="#a0a0a0" stopOpacity="0.15"/>
+              <stop offset="100%" stopColor="#808080" stopOpacity="0.05"/>
             </linearGradient>
             
-            {/* Drop shadow filter for 3D effect */}
-            <filter id="steelShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="4" dy="4" stdDeviation="8" floodColor="#082f49" floodOpacity="0.5"/>
+            {/* 3D shadow - beveled edge */}
+            <linearGradient id="steelShadowGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#1a1a1a" stopOpacity="0.9"/>
+              <stop offset="20%" stopColor="#252525" stopOpacity="0.7"/>
+              <stop offset="40%" stopColor="#303030" stopOpacity="0.5"/>
+              <stop offset="60%" stopColor="#404040" stopOpacity="0.3"/>
+              <stop offset="80%" stopColor="#505050" stopOpacity="0.15"/>
+              <stop offset="100%" stopColor="#606060" stopOpacity="0.05"/>
+            </linearGradient>
+            
+            {/* Reflection gradient for mirror effect */}
+            <linearGradient id="steelReflection" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity="0"/>
+              <stop offset="40%" stopColor="#ffffff" stopOpacity="0.1"/>
+              <stop offset="50%" stopColor="#ffffff" stopOpacity="0.25"/>
+              <stop offset="60%" stopColor="#ffffff" stopOpacity="0.1"/>
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+            </linearGradient>
+            
+            {/* High-quality drop shadow filter */}
+            <filter id="steelDropShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+              <feOffset dx="6" dy="6" result="offsetBlur"/>
+              <feFlood floodColor="#000000" floodOpacity="0.5"/>
+              <feComposite in2="offsetBlur" operator="in"/>
+              <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
             </filter>
             
-            <filter id="steelGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="-2" dy="-2" stdDeviation="4" floodColor="#7dd3fc" floodOpacity="0.3"/>
+            {/* Inner bevel filter for 3D depth */}
+            <filter id="steelBevel" x="-10%" y="-10%" width="120%" height="120%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+              <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.75" specularExponent="20" lightingColor="#ffffff" result="specOut">
+                <fePointLight x="-5000" y="-10000" z="20000"/>
+              </feSpecularLighting>
+              <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+              <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+            </filter>
+            
+            {/* Ambient occlusion filter */}
+            <filter id="ambientOcclusion" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+              <feOffset dx="2" dy="2" result="offsetBlur"/>
+              <feFlood floodColor="#000000" floodOpacity="0.3"/>
+              <feComposite in2="offsetBlur" operator="in"/>
+              <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
             </filter>
           </defs>
           
           {/* Large 3D Steel Panel - Top Left */}
-          <g filter="url(#steelShadow)">
-            <polygon points="0,0 350,0 280,180 0,150" fill="url(#steelSapphire)" opacity="0.7"/>
-            <polygon points="0,0 350,0 340,20 10,20" fill="url(#steel3DHighlight)" opacity="0.8"/>
-            <polygon points="280,180 350,0 340,20 270,160" fill="url(#steel3DShadow)" opacity="0.6"/>
+          <g filter="url(#steelDropShadow)">
+            <polygon points="0,0 400,0 320,200 0,170" fill="url(#stainlessPolished)" opacity="0.85"/>
+            <polygon points="0,0 400,0 385,25 15,25" fill="url(#steelHighlight)" opacity="0.9"/>
+            <polygon points="320,200 400,0 385,25 305,175" fill="url(#steelShadowGrad)" opacity="0.8"/>
+            <polygon points="0,0 400,0 320,200 0,170" fill="url(#steelReflection)" opacity="0.3"/>
           </g>
           
-          {/* 3D Steel Beam - Diagonal */}
-          <g filter="url(#steelShadow)" transform="rotate(-12, 400, 300)">
-            <rect x="100" y="280" width="600" height="40" fill="url(#steelNavy)" opacity="0.8" rx="2"/>
-            <rect x="100" y="280" width="600" height="8" fill="url(#steel3DHighlight)" opacity="0.7" rx="2"/>
-            <rect x="100" y="312" width="600" height="8" fill="url(#steel3DShadow)" opacity="0.5" rx="2"/>
+          {/* 3D Steel I-Beam - Diagonal */}
+          <g filter="url(#steelDropShadow)" transform="rotate(-10, 450, 320)">
+            <rect x="80" y="300" width="700" height="50" fill="url(#steelBrushed)" opacity="0.9" rx="1"/>
+            <rect x="80" y="300" width="700" height="12" fill="url(#steelHighlight)" opacity="0.85" rx="1"/>
+            <rect x="80" y="338" width="700" height="12" fill="url(#steelShadowGrad)" opacity="0.7" rx="1"/>
+            <rect x="80" y="312" width="700" height="26" fill="url(#steelReflection)" opacity="0.2"/>
           </g>
           
           {/* 3D Steel Panel - Right Side */}
-          <g filter="url(#steelShadow)">
-            <polygon points="900,50 1200,0 1200,250 850,220" fill="url(#steelNavy)" opacity="0.75"/>
-            <polygon points="900,50 1200,0 1200,15 910,60" fill="url(#steel3DHighlight)" opacity="0.7"/>
-            <polygon points="850,220 1200,250 1200,235 860,205" fill="url(#steel3DShadow)" opacity="0.5"/>
+          <g filter="url(#steelDropShadow)">
+            <polygon points="850,30 1250,0 1250,280 800,240" fill="url(#gunmetalSteel)" opacity="0.9"/>
+            <polygon points="850,30 1250,0 1235,20 865,48" fill="url(#steelHighlight)" opacity="0.85"/>
+            <polygon points="800,240 1250,280 1235,260 815,222" fill="url(#steelShadowGrad)" opacity="0.7"/>
+            <polygon points="850,30 1250,0 1250,280 800,240" fill="url(#steelReflection)" opacity="0.25"/>
           </g>
           
-          {/* 3D Steel Hexagon - Center */}
-          <g filter="url(#steelGlow)" transform="translate(500, 400)">
-            <polygon points="60,0 120,35 120,105 60,140 0,105 0,35" fill="url(#steelSapphire)" opacity="0.6"/>
-            <polygon points="60,0 120,35 60,50 0,35" fill="url(#steel3DHighlight)" opacity="0.8"/>
-            <polygon points="120,35 120,105 60,140 60,50" fill="url(#steel3DShadow)" opacity="0.4"/>
+          {/* 3D Steel Hexagonal Bolt - Center */}
+          <g filter="url(#steelBevel)" transform="translate(520, 380)">
+            <polygon points="70,0 140,40 140,120 70,160 0,120 0,40" fill="url(#stainlessPolished)" opacity="0.8"/>
+            <polygon points="70,0 140,40 70,60 0,40" fill="url(#steelHighlight)" opacity="0.9"/>
+            <polygon points="140,40 140,120 70,160 70,60" fill="url(#steelShadowGrad)" opacity="0.6"/>
+            <circle cx="70" cy="80" r="25" fill="url(#gunmetalSteel)" opacity="0.9"/>
+            <circle cx="70" cy="80" r="20" fill="url(#steelBrushed)" opacity="0.8"/>
+            <ellipse cx="70" cy="72" rx="12" ry="6" fill="url(#steelHighlight)" opacity="0.5"/>
           </g>
           
           {/* 3D Steel Beam - Lower */}
-          <g filter="url(#steelShadow)" transform="rotate(8, 800, 600)">
-            <rect x="300" y="550" width="800" height="35" fill="url(#steelSapphire)" opacity="0.7" rx="2"/>
-            <rect x="300" y="550" width="800" height="7" fill="url(#steel3DHighlight)" opacity="0.8" rx="2"/>
-            <rect x="300" y="578" width="800" height="7" fill="url(#steel3DShadow)" opacity="0.5" rx="2"/>
+          <g filter="url(#steelDropShadow)" transform="rotate(6, 850, 620)">
+            <rect x="250" y="580" width="900" height="45" fill="url(#stainlessPolished)" opacity="0.85" rx="1"/>
+            <rect x="250" y="580" width="900" height="10" fill="url(#steelHighlight)" opacity="0.9" rx="1"/>
+            <rect x="250" y="615" width="900" height="10" fill="url(#steelShadowGrad)" opacity="0.7" rx="1"/>
+            <rect x="250" y="590" width="900" height="25" fill="url(#steelReflection)" opacity="0.2"/>
           </g>
           
           {/* 3D Steel Panel - Bottom Left */}
-          <g filter="url(#steelShadow)">
-            <polygon points="0,500 200,450 250,700 0,700" fill="url(#steelNavy)" opacity="0.7"/>
-            <polygon points="0,500 200,450 190,465 10,510" fill="url(#steel3DHighlight)" opacity="0.6"/>
+          <g filter="url(#ambientOcclusion)">
+            <polygon points="0,480 230,420 290,750 0,750" fill="url(#steelBrushed)" opacity="0.85"/>
+            <polygon points="0,480 230,420 215,440 15,495" fill="url(#steelHighlight)" opacity="0.8"/>
+            <polygon points="230,420 290,750 270,730 215,440" fill="url(#steelShadowGrad)" opacity="0.65"/>
           </g>
           
-          {/* 3D Steel Triangle - Right */}
-          <g filter="url(#steelShadow)">
-            <polygon points="1100,400 1300,350 1250,550" fill="url(#steelSapphire)" opacity="0.65"/>
-            <polygon points="1100,400 1300,350 1280,365 1110,410" fill="url(#steel3DHighlight)" opacity="0.7"/>
-            <polygon points="1250,550 1300,350 1280,365 1235,530" fill="url(#steel3DShadow)" opacity="0.5"/>
+          {/* 3D Steel Triangle Plate - Right */}
+          <g filter="url(#steelDropShadow)">
+            <polygon points="1050,380 1300,320 1240,580" fill="url(#gunmetalSteel)" opacity="0.85"/>
+            <polygon points="1050,380 1300,320 1280,340 1065,395" fill="url(#steelHighlight)" opacity="0.85"/>
+            <polygon points="1240,580 1300,320 1280,340 1225,560" fill="url(#steelShadowGrad)" opacity="0.7"/>
+            <polygon points="1050,380 1300,320 1240,580" fill="url(#steelReflection)" opacity="0.2"/>
           </g>
           
-          {/* Subtle metallic grid overlay */}
-          <pattern id="metalGridBlue" width="80" height="80" patternUnits="userSpaceOnUse">
-            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#0ea5e9" strokeWidth="0.3" opacity="0.3"/>
+          {/* Additional detail - small steel rivets */}
+          <g opacity="0.7">
+            <circle cx="150" cy="80" r="8" fill="url(#stainlessPolished)"/>
+            <circle cx="150" cy="80" r="6" fill="url(#steelBrushed)"/>
+            <ellipse cx="148" cy="77" rx="3" ry="2" fill="url(#steelHighlight)" opacity="0.8"/>
+            
+            <circle cx="280" cy="120" r="8" fill="url(#stainlessPolished)"/>
+            <circle cx="280" cy="120" r="6" fill="url(#steelBrushed)"/>
+            <ellipse cx="278" cy="117" rx="3" ry="2" fill="url(#steelHighlight)" opacity="0.8"/>
+            
+            <circle cx="1100" cy="150" r="8" fill="url(#stainlessPolished)"/>
+            <circle cx="1100" cy="150" r="6" fill="url(#steelBrushed)"/>
+            <ellipse cx="1098" cy="147" rx="3" ry="2" fill="url(#steelHighlight)" opacity="0.8"/>
+            
+            <circle cx="1180" cy="200" r="8" fill="url(#stainlessPolished)"/>
+            <circle cx="1180" cy="200" r="6" fill="url(#steelBrushed)"/>
+            <ellipse cx="1178" cy="197" rx="3" ry="2" fill="url(#steelHighlight)" opacity="0.8"/>
+          </g>
+          
+          {/* Fine metallic grid overlay */}
+          <pattern id="metalGridSteel" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#606060" strokeWidth="0.5" opacity="0.4"/>
           </pattern>
-          <rect width="100%" height="100%" fill="url(#metalGridBlue)" opacity="0.15"/>
+          <rect width="100%" height="100%" fill="url(#metalGridSteel)" opacity="0.1"/>
         </svg>
         
-        {/* Soft light reflection overlay */}
+        {/* Soft ambient light reflection */}
         <div className="absolute inset-0" style={{
-          background: `radial-gradient(ellipse at 30% 20%, rgba(186,230,253,0.15) 0%, transparent 50%),
-                       radial-gradient(ellipse at 70% 80%, rgba(14,165,233,0.1) 0%, transparent 40%)`
+          background: `radial-gradient(ellipse at 25% 15%, rgba(255,255,255,0.12) 0%, transparent 45%),
+                       radial-gradient(ellipse at 75% 85%, rgba(100,100,100,0.08) 0%, transparent 35%)`
         }}></div>
       </div>
 
