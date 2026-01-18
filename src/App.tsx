@@ -142,61 +142,140 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
-      {/* Stainless Steel Reflective Background */}
+      {/* 3D Steel Background with Sapphire-to-Navy Metallic Gradient */}
       <div className="fixed inset-0 pointer-events-none">
-        {/* Base metallic gradient - stainless steel effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 opacity-90"></div>
+        {/* Base gradient - sapphire to navy metallic */}
+        <div className="absolute inset-0" style={{
+          background: `linear-gradient(135deg, 
+            #0c4a6e 0%, 
+            #0369a1 15%, 
+            #0ea5e9 30%, 
+            #38bdf8 40%, 
+            #0ea5e9 50%, 
+            #0369a1 65%, 
+            #0c4a6e 80%, 
+            #082f49 100%)`
+        }}></div>
         
-        {/* Reflective highlight streaks */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
-          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-slate-300 to-transparent"></div>
-          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
-        </div>
+        {/* Metallic sheen overlay */}
+        <div className="absolute inset-0 opacity-40" style={{
+          background: `linear-gradient(180deg, 
+            rgba(255,255,255,0.15) 0%, 
+            rgba(255,255,255,0.05) 20%, 
+            transparent 40%, 
+            rgba(0,0,0,0.1) 60%, 
+            rgba(0,0,0,0.2) 100%)`
+        }}></div>
         
-        {/* Gunmetal complex shapes */}
-        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+        {/* 3D Steel Shapes */}
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            {/* Gunmetal gradient */}
-            <linearGradient id="gunmetal" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#2a3439"/>
-              <stop offset="30%" stopColor="#4a5568"/>
-              <stop offset="50%" stopColor="#6b7280"/>
-              <stop offset="70%" stopColor="#4a5568"/>
-              <stop offset="100%" stopColor="#2a3439"/>
+            {/* Metallic sapphire gradient - lighter */}
+            <linearGradient id="steelSapphire" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#7dd3fc"/>
+              <stop offset="15%" stopColor="#38bdf8"/>
+              <stop offset="30%" stopColor="#0ea5e9"/>
+              <stop offset="50%" stopColor="#38bdf8"/>
+              <stop offset="70%" stopColor="#0ea5e9"/>
+              <stop offset="85%" stopColor="#0284c7"/>
+              <stop offset="100%" stopColor="#0369a1"/>
             </linearGradient>
-            {/* Stainless steel gradient */}
-            <linearGradient id="stainless" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#e5e7eb"/>
-              <stop offset="20%" stopColor="#9ca3af"/>
-              <stop offset="50%" stopColor="#d1d5db"/>
-              <stop offset="80%" stopColor="#9ca3af"/>
-              <stop offset="100%" stopColor="#6b7280"/>
+            
+            {/* Metallic navy gradient - darker */}
+            <linearGradient id="steelNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0369a1"/>
+              <stop offset="20%" stopColor="#075985"/>
+              <stop offset="40%" stopColor="#0c4a6e"/>
+              <stop offset="60%" stopColor="#0369a1"/>
+              <stop offset="80%" stopColor="#0c4a6e"/>
+              <stop offset="100%" stopColor="#082f49"/>
             </linearGradient>
-            {/* Subtle grid pattern */}
-            <pattern id="metalGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#4a5568" strokeWidth="0.3"/>
-            </pattern>
+            
+            {/* 3D highlight gradient */}
+            <linearGradient id="steel3DHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#bae6fd" stopOpacity="0.6"/>
+              <stop offset="30%" stopColor="#7dd3fc" stopOpacity="0.3"/>
+              <stop offset="70%" stopColor="#0284c7" stopOpacity="0.1"/>
+              <stop offset="100%" stopColor="#082f49" stopOpacity="0.4"/>
+            </linearGradient>
+            
+            {/* 3D shadow gradient */}
+            <linearGradient id="steel3DShadow" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#082f49" stopOpacity="0.8"/>
+              <stop offset="50%" stopColor="#0c4a6e" stopOpacity="0.5"/>
+              <stop offset="100%" stopColor="#0369a1" stopOpacity="0.2"/>
+            </linearGradient>
+            
+            {/* Drop shadow filter for 3D effect */}
+            <filter id="steelShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="4" dy="4" stdDeviation="8" floodColor="#082f49" floodOpacity="0.5"/>
+            </filter>
+            
+            <filter id="steelGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="-2" dy="-2" stdDeviation="4" floodColor="#7dd3fc" floodOpacity="0.3"/>
+            </filter>
           </defs>
           
-          {/* Complex geometric shapes - gunmetal */}
-          <polygon points="0,0 200,0 150,100 0,80" fill="url(#gunmetal)" opacity="0.4"/>
-          <polygon points="100,200 300,150 350,350 150,400" fill="url(#gunmetal)" opacity="0.3"/>
-          <polygon points="800,0 1000,50 950,200 750,180" fill="url(#gunmetal)" opacity="0.35"/>
-          <polygon points="600,300 850,280 900,500 650,520" fill="url(#gunmetal)" opacity="0.3"/>
-          <polygon points="1200,100 1400,80 1380,300 1180,320" fill="url(#gunmetal)" opacity="0.4"/>
+          {/* Large 3D Steel Panel - Top Left */}
+          <g filter="url(#steelShadow)">
+            <polygon points="0,0 350,0 280,180 0,150" fill="url(#steelSapphire)" opacity="0.7"/>
+            <polygon points="0,0 350,0 340,20 10,20" fill="url(#steel3DHighlight)" opacity="0.8"/>
+            <polygon points="280,180 350,0 340,20 270,160" fill="url(#steel3DShadow)" opacity="0.6"/>
+          </g>
           
-          {/* Diagonal metallic beams */}
-          <rect x="-50" y="400" width="800" height="3" fill="url(#stainless)" opacity="0.15" transform="rotate(-15)"/>
-          <rect x="200" y="600" width="1000" height="2" fill="url(#stainless)" opacity="0.1" transform="rotate(-10)"/>
-          <rect x="500" y="200" width="600" height="2" fill="url(#stainless)" opacity="0.12" transform="rotate(-20)"/>
+          {/* 3D Steel Beam - Diagonal */}
+          <g filter="url(#steelShadow)" transform="rotate(-12, 400, 300)">
+            <rect x="100" y="280" width="600" height="40" fill="url(#steelNavy)" opacity="0.8" rx="2"/>
+            <rect x="100" y="280" width="600" height="8" fill="url(#steel3DHighlight)" opacity="0.7" rx="2"/>
+            <rect x="100" y="312" width="600" height="8" fill="url(#steel3DShadow)" opacity="0.5" rx="2"/>
+          </g>
           
-          {/* Subtle grid overlay */}
-          <rect width="100%" height="100%" fill="url(#metalGrid)" opacity="0.3"/>
+          {/* 3D Steel Panel - Right Side */}
+          <g filter="url(#steelShadow)">
+            <polygon points="900,50 1200,0 1200,250 850,220" fill="url(#steelNavy)" opacity="0.75"/>
+            <polygon points="900,50 1200,0 1200,15 910,60" fill="url(#steel3DHighlight)" opacity="0.7"/>
+            <polygon points="850,220 1200,250 1200,235 860,205" fill="url(#steel3DShadow)" opacity="0.5"/>
+          </g>
+          
+          {/* 3D Steel Hexagon - Center */}
+          <g filter="url(#steelGlow)" transform="translate(500, 400)">
+            <polygon points="60,0 120,35 120,105 60,140 0,105 0,35" fill="url(#steelSapphire)" opacity="0.6"/>
+            <polygon points="60,0 120,35 60,50 0,35" fill="url(#steel3DHighlight)" opacity="0.8"/>
+            <polygon points="120,35 120,105 60,140 60,50" fill="url(#steel3DShadow)" opacity="0.4"/>
+          </g>
+          
+          {/* 3D Steel Beam - Lower */}
+          <g filter="url(#steelShadow)" transform="rotate(8, 800, 600)">
+            <rect x="300" y="550" width="800" height="35" fill="url(#steelSapphire)" opacity="0.7" rx="2"/>
+            <rect x="300" y="550" width="800" height="7" fill="url(#steel3DHighlight)" opacity="0.8" rx="2"/>
+            <rect x="300" y="578" width="800" height="7" fill="url(#steel3DShadow)" opacity="0.5" rx="2"/>
+          </g>
+          
+          {/* 3D Steel Panel - Bottom Left */}
+          <g filter="url(#steelShadow)">
+            <polygon points="0,500 200,450 250,700 0,700" fill="url(#steelNavy)" opacity="0.7"/>
+            <polygon points="0,500 200,450 190,465 10,510" fill="url(#steel3DHighlight)" opacity="0.6"/>
+          </g>
+          
+          {/* 3D Steel Triangle - Right */}
+          <g filter="url(#steelShadow)">
+            <polygon points="1100,400 1300,350 1250,550" fill="url(#steelSapphire)" opacity="0.65"/>
+            <polygon points="1100,400 1300,350 1280,365 1110,410" fill="url(#steel3DHighlight)" opacity="0.7"/>
+            <polygon points="1250,550 1300,350 1280,365 1235,530" fill="url(#steel3DShadow)" opacity="0.5"/>
+          </g>
+          
+          {/* Subtle metallic grid overlay */}
+          <pattern id="metalGridBlue" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#0ea5e9" strokeWidth="0.3" opacity="0.3"/>
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#metalGridBlue)" opacity="0.15"/>
         </svg>
         
-        {/* Mirror-like reflection effect */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent opacity-30"></div>
+        {/* Soft light reflection overlay */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse at 30% 20%, rgba(186,230,253,0.15) 0%, transparent 50%),
+                       radial-gradient(ellipse at 70% 80%, rgba(14,165,233,0.1) 0%, transparent 40%)`
+        }}></div>
       </div>
 
       {/* Navigation */}
