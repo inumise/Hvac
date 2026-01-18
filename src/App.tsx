@@ -303,18 +303,8 @@ function App() {
 
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Parallax Background */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('/images/hvac-pipes.jpg'), url('https://images.unsplash.com/photo-1615309662243-1a8c5c8d8e8e?w=1920&q=80')`,
-            transform: `translateY(${scrollY * 0.5}px)`,
-            filter: 'brightness(0.3)'
-          }}
-        />
-        
-        {/* Technical Drawing Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900" />
+        {/* Semi-transparent overlay to let 3D steel background show through */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/30 to-slate-900/60" />
         
         {/* Animated HVAC Elements */}
         <div className="absolute inset-0 overflow-hidden">
