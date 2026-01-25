@@ -87,56 +87,99 @@ function App() {
     </svg>
   )
 
-  const MaintenanceSchematic = () => (
+  // Commissioning Schematic - Primary Service
+  const CommissioningSchematic = () => (
     <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
-      {/* Pressure gauge */}
-      <circle cx="25" cy="25" r="15" strokeWidth="1.5"/>
-      <circle cx="25" cy="25" r="12"/>
-      <path d="M25 25 L25 15" strokeWidth="1.5"/>
-      <path d="M25 25 L32 20" strokeWidth="1"/>
-      {/* Gauge markings */}
-      <path d="M15 25 L17 25 M25 13 L25 15 M35 25 L33 25" strokeWidth="0.8"/>
-      {/* Multimeter */}
-      <rect x="50" y="10" width="20" height="30" rx="2" strokeWidth="1.5"/>
-      <rect x="54" y="14" width="12" height="8" rx="1"/>
-      <circle cx="57" cy="30" r="2"/>
-      <circle cx="63" cy="30" r="2"/>
-      {/* Wrench */}
-      <path d="M10 55 L25 70" strokeWidth="2"/>
-      <path d="M8 52 L13 57 L8 62 Z" fill="currentColor"/>
-      <rect x="23" y="68" width="6" height="8" rx="1" transform="rotate(-45 26 72)"/>
-      {/* Filter */}
-      <rect x="45" y="50" width="25" height="20" rx="2"/>
-      <path d="M48 55 L67 55 M48 60 L67 60 M48 65 L67 65" strokeWidth="0.8"/>
-      {/* Checkmark */}
-      <path d="M72 52 L75 55 L80 48" strokeWidth="1.5" stroke="#0ea5e9"/>
+      {/* Central control unit */}
+      <rect x="25" y="20" width="30" height="40" rx="2" strokeWidth="1.5"/>
+      {/* Display screen */}
+      <rect x="30" y="25" width="20" height="12" rx="1"/>
+      <path d="M33 29 L47 29 M33 32 L44 32" strokeWidth="0.6"/>
+      {/* Control buttons */}
+      <circle cx="33" cy="45" r="3"/>
+      <circle cx="40" cy="45" r="3"/>
+      <circle cx="47" cy="45" r="3"/>
+      {/* Status LEDs */}
+      <circle cx="33" cy="52" r="1.5" fill="currentColor"/>
+      <circle cx="40" cy="52" r="1.5" fill="currentColor"/>
+      <circle cx="47" cy="52" r="1.5" fill="currentColor"/>
+      {/* Connection lines to systems */}
+      <path d="M25 30 L10 30 L10 15" strokeWidth="1"/>
+      <path d="M25 40 L5 40" strokeWidth="1"/>
+      <path d="M25 50 L10 50 L10 65" strokeWidth="1"/>
+      <path d="M55 30 L70 30 L70 15" strokeWidth="1"/>
+      <path d="M55 40 L75 40" strokeWidth="1"/>
+      <path d="M55 50 L70 50 L70 65" strokeWidth="1"/>
+      {/* System endpoints */}
+      <rect x="5" y="10" width="10" height="8" rx="1"/>
+      <rect x="0" y="37" width="8" height="6" rx="1"/>
+      <rect x="5" y="62" width="10" height="8" rx="1"/>
+      <rect x="65" y="10" width="10" height="8" rx="1"/>
+      <rect x="72" y="37" width="8" height="6" rx="1"/>
+      <rect x="65" y="62" width="10" height="8" rx="1"/>
+      {/* Checkmark for verification */}
+      <path d="M36 35 L39 38 L45 30" strokeWidth="1.5" stroke="#0ea5e9"/>
+    </svg>
+  )
+
+  // BMS (Building Management System) Schematic
+  const BMSSchematic = () => (
+    <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+      {/* Central hub */}
+      <circle cx="40" cy="40" r="12" strokeWidth="1.5"/>
+      <circle cx="40" cy="40" r="8"/>
+      <text x="40" y="43" fontSize="6" fill="currentColor" textAnchor="middle" stroke="none">BMS</text>
+      {/* Connected nodes */}
+      <circle cx="15" cy="20" r="6"/>
+      <circle cx="65" cy="20" r="6"/>
+      <circle cx="15" cy="60" r="6"/>
+      <circle cx="65" cy="60" r="6"/>
+      {/* Connection lines */}
+      <path d="M28 35 L20 25" strokeWidth="1"/>
+      <path d="M52 35 L60 25" strokeWidth="1"/>
+      <path d="M28 45 L20 55" strokeWidth="1"/>
+      <path d="M52 45 L60 55" strokeWidth="1"/>
+      {/* Data flow indicators */}
+      <path d="M22 22 L26 26" strokeWidth="0.8" strokeDasharray="2,1"/>
+      <path d="M54 26 L58 22" strokeWidth="0.8" strokeDasharray="2,1"/>
+      {/* Sensor icons in nodes */}
+      <path d="M13 18 L17 22 M13 22 L17 18" strokeWidth="0.8"/>
+      <rect x="63" y="18" width="4" height="4" rx="0.5"/>
+      <path d="M14 58 L16 62 M14 62 L16 58" strokeWidth="0.8"/>
+      <circle cx="65" cy="60" r="2"/>
     </svg>
   )
 
   const services = [
     {
+      icon: <CommissioningSchematic />,
+      title: "HVAC Commissioning",
+      description: "Expert system commissioning ensuring optimal performance, energy efficiency, and compliance with design specifications from day one.",
+      features: ["Performance Verification", "System Optimization", "Compliance Documentation", "Energy Benchmarking"]
+    },
+    {
       icon: <ACSchematic />,
-      title: "Air Conditioning",
-      description: "Professional AC installation, repair, and maintenance services for residential and commercial properties.",
-      features: ["24/7 Emergency Service", "Energy Efficient Systems", "Smart Thermostat Integration"]
+      title: "Cooling Technologies",
+      description: "Advanced air conditioning and refrigeration systems utilizing cutting-edge technology for maximum efficiency and environmental sustainability.",
+      features: ["VRF/VRV Systems", "Chiller Plant Design", "Precision Cooling", "Heat Recovery Integration"]
     },
     {
       icon: <HeatingSchematic />,
-      title: "Heating Systems",
-      description: "Complete heating solutions including furnaces, heat pumps, and radiant heating systems.",
-      features: ["Furnace Installation", "Heat Pump Services", "Boiler Maintenance"]
+      title: "Heating Technologies",
+      description: "Innovative heating solutions incorporating heat pumps, radiant systems, and hybrid technologies for optimal thermal comfort.",
+      features: ["Heat Pump Systems", "Radiant Heating", "Hybrid Solutions", "Geothermal Integration"]
     },
     {
       icon: <VentilationSchematic />,
-      title: "Ventilation",
-      description: "Advanced ventilation systems ensuring optimal air quality and circulation throughout your space.",
-      features: ["Duct Cleaning", "Air Quality Testing", "Exhaust Systems"]
+      title: "Ventilation & IAQ",
+      description: "State-of-the-art ventilation and indoor air quality systems designed for health, comfort, and energy efficiency.",
+      features: ["Heat Recovery Ventilation", "Demand Control", "Air Purification", "CO2 Monitoring"]
     },
     {
-      icon: <MaintenanceSchematic />,
-      title: "Maintenance",
-      description: "Preventive maintenance programs to keep your HVAC systems running at peak efficiency.",
-      features: ["Annual Inspections", "Filter Replacement", "System Optimization"]
+      icon: <BMSSchematic />,
+      title: "BMS Integration",
+      description: "Comprehensive Building Management System integration for centralized control, monitoring, and optimization of all HVAC systems.",
+      features: ["Central Monitoring", "Predictive Analytics", "Remote Access", "Energy Management"]
     }
   ]
 
@@ -379,23 +422,31 @@ function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-sky-500/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Fan className="w-10 h-10 text-sky-400 animate-spin" style={{ animationDuration: '3s' }} />
-              <div className="absolute inset-0 bg-sky-400/20 rounded-full blur-lg"></div>
+              <Fan className="w-10 h-10 text-slate-400 animate-spin" style={{ animationDuration: '4s' }} />
+              <div className="absolute inset-0 bg-slate-500/10 rounded-full blur-lg"></div>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+            <span 
+              className="text-xl font-bold"
+              style={{
+                background: `linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #808080 100%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}
+            >
               HVAC Group Global
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-slate-300 hover:text-sky-400 transition-colors">Services</a>
-            <a href="#about" className="text-slate-300 hover:text-sky-400 transition-colors">About</a>
-            <a href="#contact" className="text-slate-300 hover:text-sky-400 transition-colors">Contact</a>
+            <a href="#services" className="text-slate-400 hover:text-slate-200 transition-colors">Services</a>
+            <a href="#about" className="text-slate-400 hover:text-slate-200 transition-colors">About</a>
+            <a href="#contact" className="text-slate-400 hover:text-slate-200 transition-colors">Contact</a>
           </div>
-          <button className="bg-gradient-to-r from-sky-500 to-blue-600 px-6 py-2 rounded-lg font-semibold hover:from-sky-400 hover:to-blue-500 transition-all shadow-lg shadow-sky-500/25">
+          <button className="bg-gradient-to-r from-slate-600 to-slate-700 px-6 py-2 rounded-lg font-semibold text-slate-200 hover:from-slate-500 hover:to-slate-600 transition-all border border-slate-500/30">
             Get Quote
           </button>
         </div>
@@ -433,34 +484,74 @@ function App() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 rounded-full px-4 py-2 mb-8">
-            <Shield className="w-4 h-4 text-sky-400" />
-            <span className="text-sky-400 text-sm font-medium">Licensed & Certified HVAC Professionals</span>
+          <div className="inline-flex items-center gap-2 bg-slate-800/60 border border-slate-600/40 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+            <Shield className="w-4 h-4 text-slate-300" />
+            <span className="text-slate-300 text-sm font-medium">HVAC Technology Innovation & Knowledge Exchange</span>
           </div>
           
+          {/* Hyper-realistic metallic title */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-sky-200 to-white bg-clip-text text-transparent">
-              Advanced Climate
+            <span 
+              className="inline-block"
+              style={{
+                background: `linear-gradient(135deg, 
+                  #f8f8f8 0%, 
+                  #e8e8e8 10%, 
+                  #d0d0d0 20%, 
+                  #f0f0f0 30%, 
+                  #c8c8c8 40%, 
+                  #e0e0e0 50%, 
+                  #b8b8b8 60%, 
+                  #d8d8d8 70%, 
+                  #c0c0c0 80%, 
+                  #a8a8a8 90%, 
+                  #909090 100%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+                textShadow: '0 1px 0 rgba(255,255,255,0.1)'
+              }}
+            >
+              Engineering Tomorrow's
             </span>
             <br />
-            <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-              Control Solutions
+            <span 
+              className="inline-block"
+              style={{
+                background: `linear-gradient(135deg, 
+                  #e0e0e0 0%, 
+                  #c0c0c0 15%, 
+                  #a0a0a0 30%, 
+                  #c8c8c8 45%, 
+                  #909090 60%, 
+                  #b0b0b0 75%, 
+                  #808080 90%, 
+                  #707070 100%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'
+              }}
+            >
+              Climate Systems
             </span>
           </h1>
           
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Professional HVAC services with cutting-edge technology. We design, install, and maintain 
-            heating, ventilation, and air conditioning systems for optimal comfort and efficiency.
+          <p className="text-lg text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Pioneering HVAC innovation through advanced commissioning, cutting-edge technology integration, 
+            and knowledge exchange. We transform complex climate challenges into efficient, sustainable solutions 
+            for industrial and commercial environments across Europe.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-4 rounded-xl font-semibold text-lg hover:from-sky-400 hover:to-blue-500 transition-all shadow-xl shadow-sky-500/30 flex items-center justify-center gap-2">
-              Schedule Service
+            <button className="group bg-gradient-to-r from-slate-600 to-slate-700 px-8 py-4 rounded-xl font-semibold text-lg text-slate-200 hover:from-slate-500 hover:to-slate-600 transition-all border border-slate-500/30 flex items-center justify-center gap-2">
+              Start Partnership
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="border border-sky-500/50 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-sky-500/10 transition-all flex items-center justify-center gap-2 pulse-border">
+            <button className="border border-slate-600/50 px-8 py-4 rounded-xl font-semibold text-lg text-slate-300 hover:bg-slate-700/30 transition-all flex items-center justify-center gap-2">
               <Phone className="w-5 h-5" />
-              Call Now
+              Contact Us
             </button>
           </div>
         </div>
@@ -476,12 +567,26 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                Our Services
+              <span 
+                style={{
+                  background: `linear-gradient(135deg, 
+                    #e8e8e8 0%, 
+                    #d0d0d0 20%, 
+                    #b8b8b8 40%, 
+                    #d8d8d8 60%, 
+                    #c0c0c0 80%, 
+                    #a8a8a8 100%)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+                }}
+              >
+                Technology & Innovation
               </span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Comprehensive HVAC solutions tailored to your specific needs
+            <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+              Advanced HVAC solutions driven by innovation and technical excellence
             </p>
           </div>
 
@@ -490,23 +595,23 @@ function App() {
               <div
                 key={index}
                 className={`relative group cursor-pointer transition-all duration-500 ${
-                  activeService === index ? 'scale-105' : ''
+                  activeService === index ? 'scale-[1.02]' : ''
                 }`}
                 onClick={() => setActiveService(activeService === index ? null : index)}
               >
-                {/* Technical Drawing Border */}
-                <div className="absolute inset-0 border border-sky-500/20 rounded-2xl pulse-border">
-                  <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border-t border-l border-sky-400 pulse-corner"></div>
-                  <div className="absolute -top-0.5 -right-0.5 w-2 h-2 border-t border-r border-sky-400 pulse-corner"></div>
-                  <div className="absolute -bottom-0.5 -left-0.5 w-2 h-2 border-b border-l border-sky-400 pulse-corner"></div>
-                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 border-b border-r border-sky-400 pulse-corner"></div>
+                {/* Softer Technical Drawing Border */}
+                <div className="absolute inset-0 border border-slate-600/30 rounded-2xl">
+                  <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border-t border-l border-slate-500/50"></div>
+                  <div className="absolute -top-0.5 -right-0.5 w-2 h-2 border-t border-r border-slate-500/50"></div>
+                  <div className="absolute -bottom-0.5 -left-0.5 w-2 h-2 border-b border-l border-slate-500/50"></div>
+                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 border-b border-r border-slate-500/50"></div>
                 </div>
 
-                <div className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 ${
-                  activeService === index ? 'bg-slate-800/80' : 'hover:bg-slate-800/70'
+                <div className={`bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 ${
+                  activeService === index ? 'bg-slate-800/60' : 'hover:bg-slate-800/50'
                 }`}>
                   <div className="flex items-start gap-6">
-                    <div className="text-sky-400 w-24 h-24 p-3 bg-sky-500/10 rounded-xl flex-shrink-0">
+                    <div className="text-slate-400 w-24 h-24 p-3 bg-slate-700/30 rounded-xl flex-shrink-0 border border-slate-600/20">
                       {service.icon}
                     </div>
                     <div className="flex-1">
@@ -517,11 +622,11 @@ function App() {
                       <div className={`overflow-hidden transition-all duration-500 ${
                         activeService === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
                       }`}>
-                        <div className="pt-4 border-t border-sky-500/20">
+                        <div className="pt-4 border-t border-slate-600/30">
                           <ul className="space-y-2">
                             {service.features.map((feature, i) => (
-                              <li key={i} className="flex items-center gap-2 text-slate-300">
-                                <Check className="w-5 h-5 text-sky-400" />
+                              <li key={i} className="flex items-center gap-2 text-slate-400">
+                                <Check className="w-5 h-5 text-slate-500" />
                                 {feature}
                               </li>
                             ))}
@@ -529,7 +634,7 @@ function App() {
                         </div>
                       </div>
                       
-                      <div className="flex items-center gap-2 text-sky-400 mt-4">
+                      <div className="flex items-center gap-2 text-slate-500 mt-4">
                         <span className="text-sm font-medium">
                           {activeService === index ? 'Click to collapse' : 'Click to expand'}
                         </span>
@@ -549,7 +654,7 @@ function App() {
       {/* About Section with Parallax */}
       <section id="about" className="py-24 px-6 relative overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1558358235-a0c9b8e8e8e8?w=1920&q=80')`,
             transform: `translateY(${(scrollY - 1000) * 0.3}px)`
@@ -560,47 +665,61 @@ function App() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                  Engineering Excellence
+                <span 
+                  style={{
+                    background: `linear-gradient(135deg, 
+                      #e8e8e8 0%, 
+                      #d0d0d0 20%, 
+                      #b8b8b8 40%, 
+                      #d8d8d8 60%, 
+                      #c0c0c0 80%, 
+                      #a8a8a8 100%)`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+                  }}
+                >
+                  Knowledge Exchange
                 </span>
               </h2>
-              <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                With over 20 years of experience in the HVAC industry, we bring technical expertise 
-                and innovative solutions to every project. Our team of certified technicians uses 
-                the latest technology to ensure optimal performance and energy efficiency.
+              <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+                As innovators in HVAC technology, we share our expertise through comprehensive knowledge exchange 
+                programs. Our team brings cutting-edge solutions and technical insights to transform how 
+                industrial and commercial facilities approach climate control systems.
               </p>
               
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border">
-                  <div className="text-4xl font-bold text-sky-400 mb-2">500+</div>
-                  <div className="text-slate-400">Projects Completed</div>
+                <div className="bg-slate-800/40 rounded-xl p-6 border border-slate-600/30">
+                  <div className="text-4xl font-bold text-slate-300 mb-2">500+</div>
+                  <div className="text-slate-500">Systems Commissioned</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '1s' }}>
-                  <div className="text-4xl font-bold text-sky-400 mb-2">20+</div>
-                  <div className="text-slate-400">Years Experience</div>
+                <div className="bg-slate-800/40 rounded-xl p-6 border border-slate-600/30">
+                  <div className="text-4xl font-bold text-slate-300 mb-2">20+</div>
+                  <div className="text-slate-500">Years Innovation</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '2s' }}>
-                  <div className="text-4xl font-bold text-sky-400 mb-2">98%</div>
-                  <div className="text-slate-400">Client Satisfaction</div>
+                <div className="bg-slate-800/40 rounded-xl p-6 border border-slate-600/30">
+                  <div className="text-4xl font-bold text-slate-300 mb-2">15</div>
+                  <div className="text-slate-500">Countries Served</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 border border-sky-500/20 pulse-border" style={{ animationDelay: '3s' }}>
-                  <div className="text-4xl font-bold text-sky-400 mb-2">24/7</div>
-                  <div className="text-slate-400">Emergency Service</div>
+                <div className="bg-slate-800/40 rounded-xl p-6 border border-slate-600/30">
+                  <div className="text-4xl font-bold text-slate-300 mb-2">ISO</div>
+                  <div className="text-slate-500">Certified Standards</div>
                 </div>
               </div>
             </div>
             
             <div className="relative">
               {/* Technical Drawing Frame */}
-              <div className="absolute inset-0 border border-sky-500/30 rounded-2xl transform rotate-3 pulse-border"></div>
-              <div className="absolute inset-0 border border-sky-500/20 rounded-2xl transform -rotate-3 pulse-border" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute inset-0 border border-slate-600/30 rounded-2xl transform rotate-3"></div>
+              <div className="absolute inset-0 border border-slate-600/20 rounded-2xl transform -rotate-3"></div>
               
-              <div className="relative bg-slate-800/50 rounded-2xl p-8 backdrop-blur-sm">
-                <div className="aspect-video bg-gradient-to-br from-sky-500/20 to-blue-600/20 rounded-xl flex items-center justify-center overflow-hidden">
+              <div className="relative bg-slate-800/40 rounded-2xl p-8 backdrop-blur-sm">
+                <div className="aspect-video bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-xl flex items-center justify-center overflow-hidden">
                   <img 
                     src="/images/hvac-pipes.jpg"
                     alt="HVAC System"
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-60"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src = 'https://images.unsplash.com/photo-1615309662243-1a8c5c8d8e8e?w=800&q=80';
@@ -609,8 +728,8 @@ function App() {
                 </div>
                 
                 {/* Technical Annotations */}
-                <div className="absolute top-4 right-4 bg-sky-500/20 backdrop-blur-sm rounded-lg px-3 py-1 border border-sky-500/30">
-                  <span className="text-sky-400 text-sm font-mono">HVAC-SYS-001</span>
+                <div className="absolute top-4 right-4 bg-slate-700/40 backdrop-blur-sm rounded-lg px-3 py-1 border border-slate-600/30">
+                  <span className="text-slate-400 text-sm font-mono">HVAC-SYS-001</span>
                 </div>
               </div>
             </div>
@@ -624,42 +743,72 @@ function App() {
           <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                  Get In Touch
+                <span 
+                  style={{
+                    background: `linear-gradient(135deg, 
+                      #e8e8e8 0%, 
+                      #d0d0d0 20%, 
+                      #b8b8b8 40%, 
+                      #d8d8d8 60%, 
+                      #c0c0c0 80%, 
+                      #a8a8a8 100%)`,
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+                  }}
+                >
+                  Partner With Us
                 </span>
               </h2>
-              <p className="text-slate-300 text-lg mb-8">
-                Ready to upgrade your HVAC system? Contact us for a free consultation and quote.
+              <p className="text-slate-400 text-lg mb-8">
+                Connect with our team for HVAC commissioning, technology consulting, and knowledge exchange partnerships.
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-sky-400" />
+                  <div className="w-12 h-12 bg-slate-700/30 rounded-xl flex items-center justify-center border border-slate-600/20">
+                    <Phone className="w-6 h-6 text-slate-400" />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm">Call Us</div>
-                    <div className="text-white font-semibold">+1 (555) 123-4567</div>
+                    <div className="text-slate-500 text-sm">Call Us</div>
+                    <div className="text-slate-300 font-semibold">+420 123 456 789</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-sky-400" />
+                  <div className="w-12 h-12 bg-slate-700/30 rounded-xl flex items-center justify-center border border-slate-600/20">
+                    <Mail className="w-6 h-6 text-slate-400" />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm">Email Us</div>
-                    <div className="text-white font-semibold">info@hvacpro.com</div>
+                    <div className="text-slate-500 text-sm">Email Us</div>
+                    <div className="text-slate-300 font-semibold">info@hvacgroup.cz</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-sky-500/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-sky-400" />
+                  <div className="w-12 h-12 bg-slate-700/30 rounded-xl flex items-center justify-center border border-slate-600/20">
+                    <MapPin className="w-6 h-6 text-slate-400" />
                   </div>
                   <div>
-                    <div className="text-slate-400 text-sm">Visit Us</div>
-                    <div className="text-white font-semibold">123 Industrial Ave, Tech City</div>
+                    <div className="text-slate-500 text-sm">Headquarters</div>
+                    <div className="text-slate-300 font-semibold">Prague, Czech Republic</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Partner Companies */}
+              <div className="mt-10 pt-8 border-t border-slate-700/50">
+                <h3 className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">Industrial Partners</h3>
+                <div className="space-y-3">
+                  <div className="text-slate-500 text-sm">
+                    <span className="text-slate-400 font-medium">Desert Bemedlak s.r.o.</span> — Industrial HVAC Solutions
+                  </div>
+                  <div className="text-slate-500 text-sm">
+                    <span className="text-slate-400 font-medium">Afri Company s.r.o.</span> — Climate Technology
+                  </div>
+                  <div className="text-slate-500 text-sm">
+                    <span className="text-slate-400 font-medium">HVAC Group Global s.r.o.</span> — Commissioning & Consulting
                   </div>
                 </div>
               </div>
@@ -667,53 +816,54 @@ function App() {
             
             <div className="relative">
               {/* Technical Drawing Border */}
-              <div className="absolute inset-0 border border-sky-500/20 rounded-2xl pulse-border">
-                <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border-t border-l border-sky-400 pulse-corner"></div>
-                <div className="absolute -top-0.5 -right-0.5 w-3 h-3 border-t border-r border-sky-400 pulse-corner"></div>
-                <div className="absolute -bottom-0.5 -left-0.5 w-3 h-3 border-b border-l border-sky-400 pulse-corner"></div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 border-b border-r border-sky-400 pulse-corner"></div>
+              <div className="absolute inset-0 border border-slate-600/30 rounded-2xl">
+                <div className="absolute -top-0.5 -left-0.5 w-3 h-3 border-t border-l border-slate-500/50"></div>
+                <div className="absolute -top-0.5 -right-0.5 w-3 h-3 border-t border-r border-slate-500/50"></div>
+                <div className="absolute -bottom-0.5 -left-0.5 w-3 h-3 border-b border-l border-slate-500/50"></div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 border-b border-r border-slate-500/50"></div>
               </div>
               
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8">
+              <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8">
                 <form className="space-y-6">
                   <div>
-                    <label className="block text-slate-300 mb-2 text-sm">Your Name</label>
+                    <label className="block text-slate-400 mb-2 text-sm">Your Name</label>
                     <input 
                       type="text" 
-                      className="w-full bg-slate-700/50 border border-sky-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-colors"
-                      placeholder="John Doe"
+                      className="w-full bg-slate-700/30 border border-slate-600/30 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:border-slate-500 focus:outline-none transition-colors"
+                      placeholder="Jan Novák"
                     />
                   </div>
                   <div>
-                    <label className="block text-slate-300 mb-2 text-sm">Email Address</label>
+                    <label className="block text-slate-400 mb-2 text-sm">Email Address</label>
                     <input 
                       type="email" 
-                      className="w-full bg-slate-700/50 border border-sky-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-colors"
-                      placeholder="john@example.com"
+                      className="w-full bg-slate-700/30 border border-slate-600/30 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:border-slate-500 focus:outline-none transition-colors"
+                      placeholder="jan@company.cz"
                     />
                   </div>
                   <div>
-                    <label className="block text-slate-300 mb-2 text-sm">Service Needed</label>
-                    <select className="w-full bg-slate-700/50 border border-sky-500/20 rounded-xl px-4 py-3 text-white focus:border-sky-500 focus:outline-none transition-colors">
+                    <label className="block text-slate-400 mb-2 text-sm">Service Needed</label>
+                    <select className="w-full bg-slate-700/30 border border-slate-600/30 rounded-xl px-4 py-3 text-slate-200 focus:border-slate-500 focus:outline-none transition-colors">
                       <option value="">Select a service</option>
-                      <option value="ac">Air Conditioning</option>
-                      <option value="heating">Heating Systems</option>
-                      <option value="ventilation">Ventilation</option>
-                      <option value="maintenance">Maintenance</option>
+                      <option value="commissioning">HVAC Commissioning</option>
+                      <option value="cooling">Cooling Technologies</option>
+                      <option value="heating">Heating Technologies</option>
+                      <option value="ventilation">Ventilation & IAQ</option>
+                      <option value="bms">BMS Integration</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-slate-300 mb-2 text-sm">Message</label>
+                    <label className="block text-slate-400 mb-2 text-sm">Message</label>
                     <textarea 
-                      className="w-full bg-slate-700/50 border border-sky-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-colors h-32 resize-none"
-                      placeholder="Tell us about your project..."
+                      className="w-full bg-slate-700/30 border border-slate-600/30 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 focus:border-slate-500 focus:outline-none transition-colors h-32 resize-none"
+                      placeholder="Tell us about your project requirements..."
                     ></textarea>
                   </div>
                   <button 
                     type="submit"
-                    className="w-full bg-gradient-to-r from-sky-500 to-blue-600 py-4 rounded-xl font-semibold text-lg hover:from-sky-400 hover:to-blue-500 transition-all shadow-lg shadow-sky-500/25"
+                    className="w-full bg-gradient-to-r from-slate-600 to-slate-700 py-4 rounded-xl font-semibold text-lg text-slate-200 hover:from-slate-500 hover:to-slate-600 transition-all border border-slate-500/30"
                   >
-                    Send Message
+                    Send Inquiry
                   </button>
                 </form>
               </div>
@@ -723,24 +873,32 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-sky-500/20 bg-slate-900/80">
+      <footer className="py-12 px-6 border-t border-slate-700/50 bg-slate-900/90">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <Fan className="w-8 h-8 text-sky-400" />
-              <span className="text-lg font-bold bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+              <Fan className="w-8 h-8 text-slate-500" />
+              <span 
+                className="text-lg font-bold"
+                style={{
+                  background: `linear-gradient(135deg, #c0c0c0 0%, #909090 50%, #707070 100%)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
                 HVAC Group Global
               </span>
             </div>
             
-            <div className="flex items-center gap-8 text-slate-400">
-              <a href="#services" className="hover:text-sky-400 transition-colors">Services</a>
-              <a href="#about" className="hover:text-sky-400 transition-colors">About</a>
-              <a href="#contact" className="hover:text-sky-400 transition-colors">Contact</a>
+            <div className="flex items-center gap-8 text-slate-500">
+              <a href="#services" className="hover:text-slate-300 transition-colors">Services</a>
+              <a href="#about" className="hover:text-slate-300 transition-colors">About</a>
+              <a href="#contact" className="hover:text-slate-300 transition-colors">Contact</a>
             </div>
             
-            <div className="text-slate-500 text-sm">
-              © 2026 HVAC Group Global. All rights reserved.
+            <div className="text-slate-600 text-sm">
+              © 2026 HVAC Group Global s.r.o. All rights reserved.
             </div>
           </div>
         </div>
