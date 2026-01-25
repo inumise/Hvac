@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Thermometer, Phone, Mail, MapPin, ChevronDown, Check, ArrowRight, Fan, Gauge, Shield } from 'lucide-react'
+import { Thermometer, Phone, Mail, MapPin, ChevronDown, Check, ArrowRight, Fan, Gauge, Shield, Building2, Image } from 'lucide-react'
 
 function App() {
   const [activeService, setActiveService] = useState<number | null>(null)
@@ -444,6 +444,7 @@ function App() {
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-slate-400 hover:text-slate-200 transition-colors">Services</a>
             <a href="#about" className="text-slate-400 hover:text-slate-200 transition-colors">About</a>
+            <a href="#partners" className="text-slate-400 hover:text-slate-200 transition-colors">Partners</a>
             <a href="#contact" className="text-slate-400 hover:text-slate-200 transition-colors">Contact</a>
           </div>
           <button className="bg-gradient-to-r from-slate-600 to-slate-700 px-6 py-2 rounded-lg font-semibold text-slate-200 hover:from-slate-500 hover:to-slate-600 transition-all border border-slate-500/30">
@@ -710,28 +711,132 @@ function App() {
             </div>
             
             <div className="relative">
-              {/* Technical Drawing Frame */}
-              <div className="absolute inset-0 border border-slate-600/30 rounded-2xl transform rotate-3"></div>
-              <div className="absolute inset-0 border border-slate-600/20 rounded-2xl transform -rotate-3"></div>
-              
-              <div className="relative bg-slate-800/40 rounded-2xl p-8 backdrop-blur-sm">
-                <div className="aspect-video bg-gradient-to-br from-slate-700/30 to-slate-800/30 rounded-xl flex items-center justify-center overflow-hidden">
+              {/* Photo Gallery - HVAC Commissioning & Tech Sheets */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Commissioning Photo 1 */}
+                <div className="relative group overflow-hidden rounded-xl border border-slate-600/30">
                   <img 
-                    src="/images/hvac-pipes.jpg"
-                    alt="HVAC System"
-                    className="w-full h-full object-cover opacity-60"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://images.unsplash.com/photo-1615309662243-1a8c5c8d8e8e?w=800&q=80';
-                    }}
+                    src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80"
+                    alt="HVAC Commissioning - Control Panel"
+                    className="w-full h-40 object-cover opacity-70 group-hover:opacity-90 transition-opacity"
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-3">
+                    <span className="text-slate-300 text-xs font-mono">COMM-001</span>
+                  </div>
                 </div>
                 
-                {/* Technical Annotations */}
-                <div className="absolute top-4 right-4 bg-slate-700/40 backdrop-blur-sm rounded-lg px-3 py-1 border border-slate-600/30">
-                  <span className="text-slate-400 text-sm font-mono">HVAC-SYS-001</span>
+                {/* Tech Sheet Photo 2 */}
+                <div className="relative group overflow-hidden rounded-xl border border-slate-600/30">
+                  <img 
+                    src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&q=80"
+                    alt="Technical Documentation"
+                    className="w-full h-40 object-cover opacity-70 group-hover:opacity-90 transition-opacity"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-3">
+                    <span className="text-slate-300 text-xs font-mono">TECH-DOC-002</span>
+                  </div>
+                </div>
+                
+                {/* Commissioning Photo 3 */}
+                <div className="relative group overflow-hidden rounded-xl border border-slate-600/30">
+                  <img 
+                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                    alt="HVAC System Installation"
+                    className="w-full h-40 object-cover opacity-70 group-hover:opacity-90 transition-opacity"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-3">
+                    <span className="text-slate-300 text-xs font-mono">INST-003</span>
+                  </div>
+                </div>
+                
+                {/* Tech Sheet Photo 4 */}
+                <div className="relative group overflow-hidden rounded-xl border border-slate-600/30">
+                  <img 
+                    src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80"
+                    alt="Climate Control Systems"
+                    className="w-full h-40 object-cover opacity-70 group-hover:opacity-90 transition-opacity"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 to-transparent p-3">
+                    <span className="text-slate-300 text-xs font-mono">SYS-004</span>
+                  </div>
                 </div>
               </div>
+              
+              {/* Gallery Label */}
+              <div className="mt-4 text-center">
+                <span className="text-slate-500 text-sm flex items-center justify-center gap-2">
+                  <Image className="w-4 h-4" />
+                  Commissioning & Technical Documentation
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section id="partners" className="py-24 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span 
+                style={{
+                  background: `linear-gradient(135deg, 
+                    #e8e8e8 0%, 
+                    #d0d0d0 20%, 
+                    #b8b8b8 40%, 
+                    #d8d8d8 60%, 
+                    #c0c0c0 80%, 
+                    #a8a8a8 100%)`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+                }}
+              >
+                Industrial Partners
+              </span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Collaborating with leading Czech industrial companies to deliver comprehensive HVAC solutions across Europe.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Partner 1 */}
+            <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/30 hover:border-slate-500/50 transition-all group">
+              <div className="w-16 h-16 bg-slate-700/50 rounded-xl flex items-center justify-center mb-6 border border-slate-600/30 group-hover:border-slate-500/50 transition-all">
+                <Building2 className="w-8 h-8 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-200 mb-2">Desert Bemedlak s.r.o.</h3>
+              <p className="text-slate-500 text-sm mb-4">Industrial HVAC Solutions</p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Specialized in large-scale industrial climate control systems for manufacturing facilities and warehouses.
+              </p>
+            </div>
+            
+            {/* Partner 2 */}
+            <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/30 hover:border-slate-500/50 transition-all group">
+              <div className="w-16 h-16 bg-slate-700/50 rounded-xl flex items-center justify-center mb-6 border border-slate-600/30 group-hover:border-slate-500/50 transition-all">
+                <Building2 className="w-8 h-8 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-200 mb-2">Afri Company s.r.o.</h3>
+              <p className="text-slate-500 text-sm mb-4">Climate Technology</p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Innovative climate technology solutions with focus on energy efficiency and sustainable building systems.
+              </p>
+            </div>
+            
+            {/* Partner 3 */}
+            <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/30 hover:border-slate-500/50 transition-all group">
+              <div className="w-16 h-16 bg-slate-700/50 rounded-xl flex items-center justify-center mb-6 border border-slate-600/30 group-hover:border-slate-500/50 transition-all">
+                <Building2 className="w-8 h-8 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-200 mb-2">HVAC Group Global s.r.o.</h3>
+              <p className="text-slate-500 text-sm mb-4">Commissioning & Consulting</p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Expert HVAC commissioning services and technical consulting for complex climate control projects.
+              </p>
             </div>
           </div>
         </div>
@@ -797,21 +902,6 @@ function App() {
                 </div>
               </div>
               
-              {/* Partner Companies */}
-              <div className="mt-10 pt-8 border-t border-slate-700/50">
-                <h3 className="text-slate-400 text-sm font-medium mb-4 uppercase tracking-wider">Industrial Partners</h3>
-                <div className="space-y-3">
-                  <div className="text-slate-500 text-sm">
-                    <span className="text-slate-400 font-medium">Desert Bemedlak s.r.o.</span> — Industrial HVAC Solutions
-                  </div>
-                  <div className="text-slate-500 text-sm">
-                    <span className="text-slate-400 font-medium">Afri Company s.r.o.</span> — Climate Technology
-                  </div>
-                  <div className="text-slate-500 text-sm">
-                    <span className="text-slate-400 font-medium">HVAC Group Global s.r.o.</span> — Commissioning & Consulting
-                  </div>
-                </div>
-              </div>
             </div>
             
             <div className="relative">
@@ -894,6 +984,7 @@ function App() {
             <div className="flex items-center gap-8 text-slate-500">
               <a href="#services" className="hover:text-slate-300 transition-colors">Services</a>
               <a href="#about" className="hover:text-slate-300 transition-colors">About</a>
+              <a href="#partners" className="hover:text-slate-300 transition-colors">Partners</a>
               <a href="#contact" className="hover:text-slate-300 transition-colors">Contact</a>
             </div>
             
